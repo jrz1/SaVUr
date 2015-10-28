@@ -1,0 +1,56 @@
+<ion-view view-title="Profile">
+  <ion-content>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
+          <br>
+             <ion-toggle ng-model="showanony.checked"
+                    ng-change="AnonyChange()">
+              Be Anonymous
+            </ion-toggle>
+
+            <div class="card" ng-show="showprofile">
+              <div class="item item-text-wrap">
+                <h3> My Profile</h3>
+                <p>
+                Name: {{profileName}}<br>
+                Phone: {{profilePhone}}<br>
+            <!--     VUID: {{profileVUID}}<br> -->
+                Dorm: {{profileDorm}}<br>
+              </p>
+              </div>
+              <button class="button button-block button-positive" ng-click="goedit()">Edit</button>
+            </div>
+
+            <form ng-submit="register(user)" method="post" ng-show="showedit">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text"  ng-model="user.name" required>
+                </label>
+
+              <!--   <label class="item item-input">
+                  <span class="input-label">VU-ID</span>
+                  <input type="tel"  ng-model="user.vuid" required pattern=".{8,8}">
+                </label> -->
+
+                <label class="item item-input">
+                  <span class="input-label">Phone Number</span>
+                  <input type="tel"  ng-model="user.phone" required pattern=".{10,10}">
+                </label>
+
+                <label class="item item-input">
+                  <span class="input-label">Dorm/Address</span>
+                  <input type="text"  ng-model="user.dorm" required>
+                </label>
+
+          
+                     <button class="button button-block button-positive" type="submit">Save</button>
+                  
+                  <button class="button button-block button-positive" ng-click="cancel()">Cancel</button>
+             </form>
+       
+      </ion-content>
+</ion-view>
+
+
+

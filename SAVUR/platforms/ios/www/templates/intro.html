@@ -1,0 +1,66 @@
+<ion-view view-title="Introduction">
+  <ion-content>
+    <ion-nav-buttons side="left">
+        <button class="button button-positive button-clear no-animation" ng-click="previous()" ng-show="slideIndex > 0">
+            <i class="ion-chevron-left"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right"> 
+        <button class="button button-positive button-clear no-animation" ng-click="next()" ng-show="slideIndex != 1">
+            <i class="ion-chevron-right"></i>
+        </button>
+
+    </ion-nav-buttons>
+
+    <ion-slide-box on-slide-changed="slideChanged(index)">
+        <ion-slide>
+            <h3>Welcome to SaVUr</h3>
+            <div id="logo"> <img src="img/icon.png" width="150px">
+            </div>
+            <p><b>Sexual Assault <br>Villanova University Resources</b></p>
+            <div id="narrowcontent">
+              <p>In the moments that matter, this app meets students where they are and could be the difference for someone who needs support.</p>
+               <p>No matter what a student chooses to do or not do, it is important that they are able to make an informed choice.</p>
+            </div>
+         </ion-slide>
+
+        <ion-slide>
+
+              <h2 class="title">Profile</h2>
+            <br><br>
+            <form ng-submit="register(user)" method="post">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text"  ng-model="user.name" required >
+                </label>
+
+             <!--    <label class="item item-input">
+                  <span class="input-label">VU-ID</span>
+                  <input type="tel"  ng-model="user.vuid" required pattern=".{8,8}">
+                </label> -->
+
+                <label class="item item-input">
+                  <span class="input-label">Phone Number</span>
+                  <input type="tel"  ng-model="user.phone" required pattern=".{10,10}">
+                </label>
+
+                <label class="item item-input">
+                  <span class="input-label">Dorm/Address</span>
+                  <input type="text"  ng-model="user.dorm" required>
+                </label>
+                <label class="item">
+                     <button class="button button-block button-positive" type="submit">Start</button>
+                </label>
+                <!-- User must enter credentials. they can choose to be anonymous within the app -->
+                <p> You can toggle Anonymous function within the profile </p>
+             </form>
+
+             <p id="terms" ng-click="termconditionbody()"> Terms and Conditions </p>
+        </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
+
+
+
